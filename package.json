@@ -1,0 +1,29 @@
+{
+    "name": "babel-node-api-server",
+    "version": "1.0.0",
+    "description": "A simple Node API Server",
+    "scripts": {
+        "dev": "NODE_ENV=development npx babel-node server/index",
+        "build": "babel -d ./dist/server ./server -s",
+        "start": "NODE_ENV=production node dist/server"
+    },
+    "author": "Alan Eicker",
+    "license": "MIT",
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "cors": "^2.8.5",
+        "express": "^4.16.4"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.4.4",
+        "@babel/core": "^7.4.4",
+        "@babel/node": "^7.2.2",
+        "@babel/preset-env": "^7.4.4",
+        "path": "^0.12.7"
+    },
+    "bit": {
+        "env": {},
+        "componentsDefaultDirectory": "components/{name}",
+        "packageManager": "npm"
+    }
+}
