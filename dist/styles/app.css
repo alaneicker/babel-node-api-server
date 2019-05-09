@@ -1,0 +1,31 @@
+body {
+  font-size: 16px;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  color: #222;
+}
+
+.table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ccc;
+}
+
+.table > tbody td {
+  border-top: 1px solid #ccc;
+  text-align: center;
+}
+
+.table > thead > tr {
+  background: #efefef;
+}
+
+.table > thead > tr * + *,
+.table > tbody > tr * + * {
+  border-left: 1px solid #ccc;
+}
+
+.table th,
+.table td {
+  padding: 8px;
+}

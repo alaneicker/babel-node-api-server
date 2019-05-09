@@ -1,9 +1,47 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Node Bael</title>
+    <title>Node Babel</title>
+    <link rel="stylesheet" href="styles/app.css">
   </head>
   <body>
-    Hello.
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Year</th>
+          <th>Make</th>
+          <th>Model</th>
+          <th>Trim</th>
+          <th>Color</th>
+        </tr>
+      </thead>
+      <tbody id="card-table-body">
+
+      </tbody>
+    </table>
+    <script>
+      fetch('http://localhost:9000/api/cars')
+        .then()
+        .then(function (res) {
+          return res.json();
+        })
+        .then(cars => {
+          const carTableBody = document.querySelector('#card-table-body');
+
+          cars.forEach(car => {
+            const row = document.createElement('tr');
+            
+            row.innerHTML = `
+              <td>${car.year}</td>
+              <td>${car.make}</td>
+              <td>${car.model}</td>
+              <td>${car.trim}</td>
+              <td>${car.color}</td>
+            `;
+
+            carTableBody.appendChild(row);
+          });
+        });
+    </script>
   </body>
 </html>
