@@ -3,34 +3,39 @@
   <head>
     <title>Node Babel</title>
     <link rel="stylesheet" href="styles/app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/atom-one-dark-reasonable.min.css">
   </head>
   <body>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Year</th>
-          <th>Make</th>
-          <th>Model</th>
-          <th>Trim</th>
-          <th>Color</th>
-        </tr>
-      </thead>
-      <tbody id="card-table-body">
+    
+    <h3>getContacts()</h3>
+    <pre><code id="get-contacts" class="hljs json"></code></pre>
 
-      </tbody>
-    </table>
+    <h3>getContactById()</h3>
+    <pre><code id="get-contact-by-id" class="hljs json"></code></pre>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
     <script>
-      fetch('http://localhost:9000/api/cars')
+      fetch('http://localhost:9000/api/contacts')
         .then(function (res) {
           return res.json();
         })
-        .then(cars => {
-          const carTableBody = document.querySelector('#card-table-body');
+        .then(contacts => {
+          const result = document.querySelector('#get-contacts');
+          result.innerHTML = JSON.stringify(contacts, null, 2);
+          document.querySelectorAll('pre code').forEach(block => {
+            hljs.highlightBlock(block);
+          });
+        });
 
-          cars.forEach(car => {
-            const row = document.createElement('tr');
-            row.innerHTML = `<td>${Object.values(car).join('</td><td>')}</td>`;
-            carTableBody.appendChild(row);
+      fetch('http://localhost:9000/api/contacts/1')
+        .then(function (res) {
+          return res.json();
+        })
+        .then(contact => {
+          const result = document.querySelector('#get-contact-by-id');
+          result.innerHTML = JSON.stringify(contact, null, 2);
+          document.querySelectorAll('pre code').forEach(block => {
+            hljs.highlightBlock(block);
           });
         });
     </script>

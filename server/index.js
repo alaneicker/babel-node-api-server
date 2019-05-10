@@ -2,6 +2,7 @@ import path from 'path';
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
+import { getContacts, getContactById } from './queries';
 
 const port = process.env.PORT || 9000;
 const app = express();
@@ -18,30 +19,15 @@ app.use(bodyParser.json());
 app.use(express.static(staticDir));
 app.use(cors());
 
-app.get('/api/cars', (req, res) => {
-  res.send([
-    {
-      "make": "Ford",
-      "model": "Explorer",
-      "trim": "Limited",
-      "year": "2017",
-      "color": "Gray"
-    },
-    {
-      "make": "Honda",
-      "model": "C-RV",
-      "trim": "EX-L",
-      "year": "2018",
-      "color": "White"
-    },
-    {
-      "make": "GMC",
-      "model": "Yukon",
-      "trim": "Denali",
-      "year": "2019",
-      "color": "Black"
-    },
-  ])
+app.get('/api/contacts', async (req, res) => {
+  const contacts = await getContacts();
+  res.send(contacts);
+});
+
+app.get('/api/contacts/:id', async (req, res) => {
+  const { id } = req.params;
+  const contact = await getContactById(id);
+  res.send(contact);
 });
 
 app.listen(port, () => {
