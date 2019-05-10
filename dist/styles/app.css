@@ -1,31 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i,900,900i');
+
 body {
   font-size: 16px;
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
   color: #222;
+  font-weight: 400,
 }
 
-.table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width: 100%;
-  border: 1px solid #ccc;
+h1 {
+  text-transform: uppercase;
 }
 
-.table > tbody td {
-  border-top: 1px solid #ccc;
-  text-align: center;
-}
-
-.table > thead > tr {
-  background: #efefef;
-}
-
-.table > thead > tr * + *,
-.table > tbody > tr * + * {
-  border-left: 1px solid #ccc;
-}
-
-.table th,
-.table td {
-  padding: 8px;
+h1, h2, h3 {
+  font-weight: 600;
 }
