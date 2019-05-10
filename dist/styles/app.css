@@ -16,6 +16,7 @@ h1 {
   display: inline-block;
   padding: 4px 16px;
   margin: 0 0 20px;
+  border-radius: 5px;
 }
 
 h2, h3 {
@@ -28,4 +29,14 @@ hr {
   background: #ccc;
   height: 1px;
   margin: 16px 0;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 16px;
+}
+
+.vr {
+  margin-bottom: 16px;
 }
