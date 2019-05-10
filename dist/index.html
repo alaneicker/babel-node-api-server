@@ -52,10 +52,8 @@
         })
         .catch(err => console.log(err));
 
-      axios.post('http://localhost:9000/api/contact/by-name', {
-        first_name: 'Dwayne',
-        last_name: 'Johnson',
-      })
+      const contact = { first_name: 'Dwayne', last_name: 'Johnson' };
+      axios.post('http://localhost:9000/api/contact/by-name', contact)
         .then(contact => {
           const result = document.querySelector('#get-contact-by-name');
           result.innerHTML = JSON.stringify(contact, null, 2);
