@@ -28,7 +28,11 @@ hr {
   border: 0;
   background: #ccc;
   height: 1px;
-  margin: 16px 0;
+  margin: 24px 0;
+}
+
+p {
+  margin: 0;
 }
 
 .card {

@@ -10,42 +10,44 @@
     <h1>Node API Server</h1>
 
     <div class="card">
-      <h2>Technologies uses:</h2>
+      <h2>Server Stack:</h2>
       <ul>
-        <li>Babel</li>
         <li>Node</li>
-        <li>MongoDB</li>
+        <li>Express</li>
+        <li>Babel</li>
         <li>Mongoose</li>
       </ul>
-    </div>
 
-    <div class="vr"></div>
+      <h2>Database:</h2>
+      <ul>
+        <li>MongoDB</li>
+      </ul>
 
-    <div class="card">
       <h2>Endpoints</h2>
   
       <div class="vr"></div>
   
-      <h3>/api/contacts</h3>
+      <p>/api/contacts</p>
       <pre><code class="hljs javascript">axios.get('/api/contacts');</code></pre>
       <pre><code id="get-contacts" class="hljs json"></code></pre>
   
-      <h3>/api/contacts/:id</h3>
+      <p>/api/contacts/:id</p>
       <pre><code class="hljs javascript">axios.get('/api/contacts/1');</code></pre>
       <pre><code id="get-contact-by-id" class="hljs json"></code></pre>
   
-      <h3>/api/contact/by-name</h3>
+      <p>/api/contact/by-name</p>
       <pre><code class="hljs javascript">axios.post('/api/contact/by-name', { first: 'Dwayne', last: 'Johnson' })</code></pre>
       <pre><code id="get-contact-by-name" class="hljs json"></code></pre>
+
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
     <script>
       axios.get('/api/contacts')
-        .then(contacts => {
+        .then(res => {
           const result = document.querySelector('#get-contacts');
-          result.innerHTML = JSON.stringify(contacts, null, 2);
+          result.innerHTML = JSON.stringify(res.data, null, 2);
           document.querySelectorAll('pre code').forEach(block => {
             hljs.highlightBlock(block);
           });
@@ -53,9 +55,9 @@
         .catch(err => console.log(err));
 
       axios.get('/api/contacts/1')
-        .then(contact => {
+        .then(res => {
           const result = document.querySelector('#get-contact-by-id');
-          result.innerHTML = JSON.stringify(contact, null, 2);
+          result.innerHTML = JSON.stringify(res.data, null, 2);
           document.querySelectorAll('pre code').forEach(block => {
             hljs.highlightBlock(block);
           });
@@ -64,9 +66,9 @@
 
       const contact = { first: 'Dwayne', last: 'Johnson' };
       axios.post('/api/contact/by-name', contact)
-        .then(contact => {
+        .then(res => {
           const result = document.querySelector('#get-contact-by-name');
-          result.innerHTML = JSON.stringify(contact, null, 2);
+          result.innerHTML = JSON.stringify(res.data, null, 2);
           document.querySelectorAll('pre code').forEach(block => {
             hljs.highlightBlock(block);
           });
