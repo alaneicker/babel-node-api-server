@@ -17,9 +17,5 @@ export const getContactByName = name => {
     'name.last': { $regex: new RegExp(name.last_name, 'i') },
   };
 
-  if (name.mi !== null) {
-    query['name.mi'] = { $regex: new RegExp(name.mi, 'i') };
-  }
-
   return Contacts.findOne(query);
 };
