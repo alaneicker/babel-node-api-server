@@ -4,13 +4,28 @@ body {
   font-size: 16px;
   font-family: 'Poppins', Arial, Helvetica, sans-serif;
   color: #222;
-  font-weight: 400,
+  font-weight: 400;
+  margin: 0;
+  padding: 20px;
 }
 
 h1 {
   text-transform: uppercase;
+  background: #333;
+  color: #fff;
+  display: inline-block;
+  padding: 4px 16px;
+  margin: 0 0 20px;
 }
 
-h1, h2, h3 {
+h2, h3 {
   font-weight: 600;
+  margin: 0 0 8px;
+}
+
+hr {
+  border: 0;
+  background: #ccc;
+  height: 1px;
+  margin: 16px 0;
 }
