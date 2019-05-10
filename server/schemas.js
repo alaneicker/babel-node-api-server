@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
-const Schema = mongoose.Schema;
 
-const schema = new Schema({
+const schema = new mongoose.Schema({
   id: { 
     type: Number,
     required: true,

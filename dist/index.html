@@ -26,7 +26,7 @@
     <pre><code id="get-contact-by-id" class="hljs json"></code></pre>
 
     <h3>/api/contact/by-name</h3>
-    <pre><code class="hljs javascript">axios.post('http://localhost:9000/api/contact/by-name', { first_name: 'Dwayne', last_name: 'Johnson' })</code></pre>
+    <pre><code class="hljs javascript">axios.post('http://localhost:9000/api/contact/by-name', { first: 'Dwayne', last: 'Johnson' })</code></pre>
     <pre><code id="get-contact-by-name" class="hljs json"></code></pre>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
@@ -52,7 +52,7 @@
         })
         .catch(err => console.log(err));
 
-      const contact = { first_name: 'Dwayne', last_name: 'Johnson' };
+      const contact = { first: 'Dwayne', last: 'Johnson' };
       axios.post('http://localhost:9000/api/contact/by-name', contact)
         .then(contact => {
           const result = document.querySelector('#get-contact-by-name');

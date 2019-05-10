@@ -12,9 +12,10 @@ export const getContactById = id => {
 };
 
 export const getContactByName = name => {
-  let query = {
-    'name.first': { $regex: new RegExp(name.first_name, 'i') },
-    'name.last': { $regex: new RegExp(name.last_name, 'i') },
+  const { first, last } = name;
+  const query = {
+    'name.first': { $regex: new RegExp(first, 'i') },
+    'name.last': { $regex: new RegExp(last, 'i') },
   };
 
   return Contacts.findOne(query);
