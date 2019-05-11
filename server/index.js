@@ -2,7 +2,11 @@ import path from 'path';
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import { getContacts, getContactById, getContactByName } from './queries';
+import { 
+  getContacts, 
+  getContactById, 
+  getContactByName
+} from './queries';
 
 const port = process.env.PORT || 9000;
 const app = express();
